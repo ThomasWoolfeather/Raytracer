@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1386796A-E2A5-40D5-A068-A267A9271A5A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RayTracer</RootNamespace>
+    <AssemblyName>RayTracer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>OpenTK\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\LightSources\SpotLight.cs" />
+    <Compile Include="Model\Materials\Material.cs" />
+    <Compile Include="Model\Materials\Mirror.cs" />
+    <Compile Include="Model\Primitives\Quad.cs" />
+    <Compile Include="Model\Primitives\Triangle.cs" />
+    <Compile Include="Model\Skydome.cs" />
+    <Compile Include="Service\DebugWindow.cs" />
+    <Compile Include="Model\Intersection.cs" />
+    <Compile Include="Model\LightSources\Light.cs" />
+    <Compile Include="Model\Materials\Checkerboard.cs" />
+    <Compile Include="Model\Materials\Shiny.cs" />
+    <Compile Include="Model\Primitives\Primitive.cs" />
+    <Compile Include="Model\Primitives\Plane.cs" />
+    <Compile Include="Model\Primitives\Sphere.cs" />
+    <Compile Include="Model\Ray.cs" />
+    <Compile Include="Service\DiagnosticTool.cs" />
+    <Compile Include="Service\Raytracer.cs" />
+    <Compile Include="Model\Scene.cs" />
+    <Compile Include="Service\Sprite.cs" />
+    <Compile Include="Service\Surface.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shaders\AntiAliasing.cs" />
+    <Compile Include="Utils\Translator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Shaders\fs.glsl" />
+    <None Include="Shaders\vs.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\font.png" />
+    <Content Include="assets\skydome.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
